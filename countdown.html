@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>countdown timer</title>
+    <style>
+        body{
+            background-color:aliceblue;
+        }
+        #demo {
+            font-size: 150px;
+            text-align: center;
+            color: orangered;
+        }
+        .countdown-btn {
+            display: flex;
+            justify-content: center;
+        }
+        .countdown-btn button {
+            padding: 35px;
+            color: white;
+            font-size: 30px;
+            border: 0px;
+            background-color: tomato;
+            border-radius: 5px;
+        }
+        #beep-audio {
+            visibility: hidden;
+        }
+        
+        @media screen and (max-width: 576px) {
+            #demo {
+                font-size: 80px;
+            }
+        }
+        </style>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>  
+        <!-- sound for audio  -->
+        <audio controls id="beep-audio" src="./audio/mixkit-clock-countdown-bleeps-916.wav"></audio>
+
+        <!-- Display the countdown timer in an element -->
+        <p id="demo"></p>
+        <div class="countdown-btn">
+            <button id="countdown" onclick="countdown()" type="button">Start Countdown</button>
+        </div>
+
+    <script>
+
+
+
+
+        // Certainly! Let's create a simple countdown timer in JavaScript that starts from **21** and counts down to **15**. Here's an example using the `setInterval` method:
+
+        function countdown() {
+            const element = document.getElementById('countdown');
+            element.classList.add('hidden');
+            // console.log(element);
+
+                // Set the initial countdown value
+    var countdown = 21;
+
+// Update the countdown every 1 second
+var x = setInterval(function() {
+  // Display the current countdown value
+    document.getElementById("demo").innerHTML = countdown;
+
+    // Decrease the countdown by 1
+    countdown--;
+
+    // If the countdown reaches 15, stop the timer
+    if (countdown < 14) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "Countdown complete!";
+        const element1 = document.getElementById('countdown');
+        element1.classList.remove('hidden');
+    }
+    }, 1000);
+
+        }
+        </script>
+
+<!-- In this example: -->
+<!-- // - We start with a countdown value of **21**.
+// - The timer updates every second using `setInterval`.
+// - When the countdown reaches **15**, we stop the timer and display "Countdown complete!".
+
+// Feel free to customize the starting value, interval, and final message as needed! 🕒🔢
+
+// Source: Conversation with Bing, 2/17/2024
+// (1) How To Create a Countdown Timer - W3Schools. https://www.w3schools.com/howto/howto_js_countdown.asp.
+// (2) Making a 15 minute countdown timer with buttons- javascript. https://stackoverflow.com/questions/44146000/making-a-15-minute-countdown-timer-with-buttons-javascript.
+// (3) How to get the timer start counting down using javascript?. https://stackoverflow.com/questions/34036526/how-to-get-the-timer-start-counting-down-using-javascript.
+// (4) javascript - Make a countdown from timer - Stack Overflow. https://stackoverflow.com/questions/10541609/make-a-countdown-from-timer.
+// (5) How to write a countdown timer in JavaScript? - Stack Overflow. https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript. -->
+
+</body>
+</html>
